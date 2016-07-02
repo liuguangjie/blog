@@ -73,8 +73,6 @@ public class IndexController {
             param.append("releaseDateStr="+releaseDateStr+"&");
         }
         request.setAttribute("pageCode",PageUtil.genPagination(request.getContextPath() + "/index.html", blogService.getTotal(map), Integer.parseInt(page), 10, param.toString()));
-
-        System.out.println(request.getAttribute("pageCode"));
         request.setAttribute("mainPage","foreground/blog/list.jsp");
         request.setAttribute("pageTitle","Java开源系统");
         return "mainTemp";
