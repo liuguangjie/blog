@@ -8,7 +8,7 @@
     最新博客</div>
   <div class="datas">
     <ul>
-      <c:forEach var="blog" items="${blogList}">
+      <c:forEach var="blog" items="${requestScope.blogList}">
         <li style="margin-bottom: 30px">
           <span class="date"><a href="${pageContext.request.contextPath}/blog/articles/${blog.id}.html"><fmt:formatDate value="${blog.releaseDate }" type="date" pattern="yyyy年MM月dd日"/></a></span>
           <span class="title"><a href="${pageContext.request.contextPath}/blog/articles/${blog.id}.html">${blog.title }</a></span>
@@ -31,7 +31,7 @@
   <nav>
     <ul class="pagination pagination-sm">
       <!-- 分页 -->
-      ${pageCode }
+      ${requestScope.pageCode }
     </ul>
   </nav>
 </div>

@@ -41,7 +41,6 @@ public class IndexController {
      */
     @RequestMapping("/index")
     public String index(@RequestParam(value="page",required=false)String page,@RequestParam(value="typeId",required=false)String typeId,@RequestParam(value="releaseDateStr",required=false)String releaseDateStr,HttpServletRequest request)throws Exception{
-       // ModelAndView mav=new ModelAndView();
         if(StringUtil.isEmpty(page)){
             page="1";
         }
@@ -65,7 +64,6 @@ public class IndexController {
                 }
             }
         }
-        //mav.addObject("blogList", blogList);
         request.setAttribute("blogList",blogList);
         StringBuffer param=new StringBuffer(); // 查询参数
         if(StringUtil.isNotEmpty(typeId)){
@@ -74,14 +72,11 @@ public class IndexController {
         if(StringUtil.isNotEmpty(releaseDateStr)){
             param.append("releaseDateStr="+releaseDateStr+"&");
         }
-       // mav.addObject("pageCode", PageUtil.genPagination(request.getContextPath() + "/index.html", blogService.getTotal(map), Integer.parseInt(page), 10, param.toString()));
         request.setAttribute("pageCode",PageUtil.genPagination(request.getContextPath() + "/index.html", blogService.getTotal(map), Integer.parseInt(page), 10, param.toString()));
-        //mav.addObject("mainPage", "foreground/blog/list.jsp");
-        request.setAttribute("mainPage","foreground/blog/list.jsp");
-        //mav.addObject("pageTitle","Java开源系统");
-        request.setAttribute("pageTitle","Java开源系统");
-        //mav.setViewName("mainTemp");
 
+        System.out.println(request.getAttribute("pageCode"));
+        request.setAttribute("mainPage","foreground/blog/list.jsp");
+        request.setAttribute("pageTitle","Java开源系统");
         return "mainTemp";
     }
 
