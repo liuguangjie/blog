@@ -14,6 +14,9 @@
 在线编辑器使用了百度的UEditor，支持单图，多图上传，支持截图上传，支持代码高亮特性；
 
 
+注意要修改lucene的索引的路径  com.chuangwl.lucene.BlogIndex.java类  getWriter方法
+
+
 后台登录  http://localhost:8080/login.jsp
 
 帐号 666
