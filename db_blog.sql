@@ -94,8 +94,8 @@ INSERT INTO `t_blogger` VALUES ('1', '666', 'e2d5a792cf2a811e4a6310c75df4fd66', 
 -- ----------------------------
 -- Table structure for `t_blogtype`
 -- ----------------------------
-DROP TABLE IF EXISTS `t_blogtype`;
-CREATE TABLE `t_blogtype` (
+DROP TABLE IF EXISTS `t_blogType`;
+CREATE TABLE `t_blogType` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `typeName` varchar(30) DEFAULT NULL,
   `orderNo` int(11) DEFAULT NULL,
