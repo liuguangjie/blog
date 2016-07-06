@@ -106,7 +106,13 @@ public class Blog {
     public void setImagesList(List<String> imagesList) {
         this.imagesList = imagesList;
     }
-
-
+	@Override
+	public String toString() {
+		return "Blog [id=" + id + ", title=" + title + ", summary=" + summary + ", releaseDate=" + releaseDate
+				+ ", clickHit=" + clickHit + ", replyHit=" + replyHit + ", content=" + content + ", contentNoTag="
+				+ contentNoTag + ", blogType=" + blogType + ", blogCount=" + blogCount + ", releaseDateStr="
+				+ releaseDateStr + ", keyWord=" + keyWord + ", imagesList=" + imagesList + "]";
+	}
+  
 
 }

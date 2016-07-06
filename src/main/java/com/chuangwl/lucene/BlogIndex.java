@@ -47,6 +47,11 @@ public class BlogIndex {
 
     private Directory dir = null;
 
+    /**
+	 * lucene数据的存放路径
+	 */
+    public static final String DATA_PATH="/home/free/lucene";
+    
 
     /**
      * 获取IndexWriter实例
@@ -55,7 +60,7 @@ public class BlogIndex {
      * @throws Exception
      */
     private IndexWriter getWriter() throws Exception {
-        dir = FSDirectory.open(Paths.get("C://lucene"));
+        dir = FSDirectory.open(Paths.get(BlogIndex.DATA_PATH)); 
         SmartChineseAnalyzer analyzer = new SmartChineseAnalyzer();
         IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
         IndexWriter writer = new IndexWriter(dir, iwc);
@@ -117,7 +122,7 @@ public class BlogIndex {
      * @throws Exception
      */
     public List<Blog> searchBlog(String q) throws Exception {
-        dir = FSDirectory.open(Paths.get("C://lucene"));
+        dir = FSDirectory.open(Paths.get(BlogIndex.DATA_PATH));
         IndexReader reader = DirectoryReader.open(dir);
         IndexSearcher is = new IndexSearcher(reader);
         BooleanQuery.Builder booleanQuery = new BooleanQuery.Builder();

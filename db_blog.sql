@@ -33,7 +33,7 @@ CREATE TABLE `t_blog` (
   `keyWord` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `typeId` (`typeId`),
-  CONSTRAINT `t_blog_ibfk_1` FOREIGN KEY (`typeId`) REFERENCES `t_blogtype` (`id`)
+  CONSTRAINT `t_blog_ibfk_1` FOREIGN KEY (`typeId`) REFERENCES `t_blogType` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
