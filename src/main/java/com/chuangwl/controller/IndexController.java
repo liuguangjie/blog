@@ -44,8 +44,8 @@ public class IndexController {
         if (page == null || page == 0) {
             page = 1;
         }
-        PageBean pageBean = new PageBean(page, 10);
-        Map<String, Object> map = new HashMap<String, Object>();
+        PageBean pageBean=new PageBean(page,10);
+        Map<String,Object> map=new HashMap<String,Object>();
         map.put("start", pageBean.getStart());
         map.put("size", pageBean.getPageSize());
         map.put("typeId", typeId);
@@ -72,8 +72,10 @@ public class IndexController {
         if (StringUtil.isNotEmpty(releaseDateStr)) {
             param.append("releaseDateStr=" + releaseDateStr + "&");
         }
-        request.setAttribute("pageCode", PageUtil.genPagination(request.getContextPath() + "/index.html", blogService.getTotal(map), page, 10, param.toString()));
         request.setAttribute("pageTitle", "Java开源系统");
+        request.setAttribute("pageCode",PageUtil.genPagination(request.getContextPath() + "/index.html", blogService.getTotal(map), page, 10, param.toString()));
+        request.setAttribute("mainPage","foreground/blog/list.jsp");
+        request.setAttribute("pageTitle","Java开源系统");
         return "mainTemp";
     }
 

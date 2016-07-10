@@ -40,7 +40,7 @@
 
   <div class="row">
     <div class="col-md-9">
-      <jsp:include page="${pageContext.request.contextPath}/foreground/blog/list.jsp"></jsp:include>
+      <jsp:include page="${requestScope.mainPage}"></jsp:include>
     </div>
 
     <div class="col-md-3">
