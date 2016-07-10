@@ -34,9 +34,9 @@
 </head>
 <body>
 <div class="container">
-  <jsp:include page="/foreground/common/head.jsp"/>
+  <jsp:include page="${pageContext.request.contextPath}/foreground/common/head.jsp"/>
 
-  <jsp:include page="/foreground/common/menu.jsp"/>
+  <jsp:include page="${pageContext.request.contextPath}/foreground/common/menu.jsp"/>
 
   <div class="row">
     <div class="col-md-9">
@@ -97,7 +97,7 @@
 
     </div>
   </div>
-  <jsp:include page="/foreground/common/foot.jsp"/>
+  <jsp:include page="${pageContext.request.contextPath}/foreground/common/foot.jsp"/>
 </div>
 </body>
 </html>

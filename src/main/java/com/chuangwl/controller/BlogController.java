@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -77,16 +76,16 @@ public class BlogController {
      * @throws Exception
      */
     @RequestMapping("/q")
-    public ModelAndView search(@RequestParam(value = "q", required = false) String q, @RequestParam(value = "page", required = false) String page, HttpServletRequest request) throws Exception {
-        if (StringUtil.isEmpty(page)) {
-            page = "1";
+    public ModelAndView search( String q, Integer page, HttpServletRequest request) throws Exception {
+        if (page==null || page==0) {
+            page = 1;
         }
         ModelAndView mav = new ModelAndView();
         mav.addObject("mainPage", "foreground/blog/result.jsp");
         List<Blog> blogList = blogIndex.searchBlog(q.trim());
-        Integer toIndex = blogList.size() >= Integer.parseInt(page) * 10 ? Integer.parseInt(page) * 10 : blogList.size();
-        mav.addObject("blogList", blogList.subList((Integer.parseInt(page) - 1) * 10, toIndex));
-        mav.addObject("pageCode", this.genUpAndDownPageCode(Integer.parseInt(page), blogList.size(), q, 10, request.getServletContext().getContextPath()));
+        Integer toIndex = blogList.size() >= page * 10 ? page * 10 : blogList.size();
+        mav.addObject("blogList", blogList.subList((page - 1) * 10, toIndex));
+        mav.addObject("pageCode", this.genUpAndDownPageCode(page, blogList.size(), q, 10, request.getServletContext().getContextPath()));
         mav.addObject("q", q);
         mav.addObject("resultTotal", blogList.size());
         mav.addObject("pageTitle", "搜索关键字'" + q + "'结果页面_Java开源博客系统");
