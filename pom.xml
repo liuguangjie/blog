@@ -9,7 +9,7 @@
     <properties>
         <!-- 定义变量 以 project开头 引用变量 ${project.xxxxx} -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.finalName>springmybatis</project.finalName>
+        <project.finalName>ROOT</project.finalName>
         <project.lib>src/main/webapp/WEB-INF/lib</project.lib>
         <project.jdkversion>1.7</project.jdkversion>
         <project.maven.compiler>3.1</project.maven.compiler>
