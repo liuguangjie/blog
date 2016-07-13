@@ -2,11 +2,9 @@ package com.chuangwl.controller.admin;
 
 import com.chuangwl.entity.Blogger;
 import com.chuangwl.service.BloggerService;
-import com.chuangwl.util.CryptographyUtil;
 import com.chuangwl.util.DateUtil;
 import com.chuangwl.util.ResponseUtil;
 import net.sf.json.JSONObject;
-import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -73,28 +71,7 @@ public class BloggerAdminController {
         return null;
     }
 
-    /**
-     * 修改博主密码
-     *
-     * @param newPassword
-     * @param response
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping("/modifyPassword")
-    public String modifyPassword(String newPassword, HttpServletResponse response) throws Exception {
-        Blogger blogger = new Blogger();
-        blogger.setPassword(CryptographyUtil.md5(newPassword, "java1234"));
-        int resultTotal = bloggerService.update(blogger);
-        JSONObject result = new JSONObject();
-        if (resultTotal > 0) {
-            result.put("success", true);
-        } else {
-            result.put("success", false);
-        }
-        ResponseUtil.write(response, result);
-        return null;
-    }
+    
 
     /**
      * 注销
@@ -104,7 +81,7 @@ public class BloggerAdminController {
      */
     @RequestMapping("/logout")
     public String logout() throws Exception {
-        SecurityUtils.getSubject().logout();
+        //SecurityUtils.getSubject().logout();
         return "redirect:/login.jsp";
     }
 }
