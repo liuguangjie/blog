@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Java开源博客系统后台管理页面-Powered by java1234</title>
+  <title>Java开源博客系统后台管理页面-Powered by xxxxx</title>
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
   <script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
@@ -99,7 +99,7 @@
   <table style="padding: 5px" width="100%">
     <tr>
       <td width="50%">
-        <img alt="logo" src="${pageContext.request.contextPath}/static/images/logo.png">
+        <img alt="logo" src="javascript:void(0)">
       </td>
       <td valign="bottom" align="right" width="50%">
         <font size="3">&nbsp;&nbsp;<strong>欢迎：</strong>${currentUser.userName }</font>
